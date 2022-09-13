@@ -8,8 +8,9 @@ namespace DamageCalculation
 {
     class ArrowDamage
     {
-        public const int BASE_DAMAGE = 3;
-        public const int FLAME_DAMAGE = 2;
+        public const decimal BASE_MULTIPLIER = 0.35M;
+        public const decimal MAGIC_MULTIPLIER = 2.5M;
+        public const decimal FLAME_DAMAGE = 1.25M;
 
         /// <summary>
         /// Contains total damage.
@@ -63,19 +64,17 @@ namespace DamageCalculation
         /// </summary>
         private void CalculateDamage()
         {
-            decimal magicMultiplier = 1M;
-            if (magic) magicMultiplier = 1.75M;
-
-            Damage = BASE_DAMAGE;
-            Damage = (int)(Roll * magicMultiplier) + BASE_DAMAGE;
-            if (Flaming) Damage += FLAME_DAMAGE;
+            decimal baseDamage = Roll * BASE_MULTIPLIER;
+            if (Magic) baseDamage *= MAGIC_MULTIPLIER;
+            if (Flaming) Damage = (int)Math.Ceiling(baseDamage + FLAME_DAMAGE);
+            else Damage = (int)Math.Ceiling(baseDamage);
         }
 
         /// <summary>
         /// Constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
         /// </summary>
         /// <param name="startingRoll">Starting 3d6 roll</param>
-        public SwordDamage(int startingRoll)
+        public ArrowDamage(int startingRoll)
         {
             roll = startingRoll;
             CalculateDamage();
