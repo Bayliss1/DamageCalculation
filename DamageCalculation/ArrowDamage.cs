@@ -33,7 +33,7 @@ namespace DamageCalculation
 
         private bool flaming;
         /// <summary>
-        /// True if the sword is flaming, flase otherwise.
+        /// True if the sword is flaming, false otherwise.
         /// </summary>
         public bool Flaming
         {
