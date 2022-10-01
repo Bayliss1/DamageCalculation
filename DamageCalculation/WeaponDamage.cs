@@ -9,10 +9,10 @@ namespace DamageCalculation
     class WeaponDamage
     {
         // property for damage
-        public int Damage { get; set; }
+        public int Damage { get; protected set; }
 
         // roll backing field and property
-        protected int roll;
+        private int roll;
         public int Roll
         { 
             get { return roll; }
@@ -24,7 +24,7 @@ namespace DamageCalculation
         }
 
         // flaming backing field and property
-        protected bool flaming;
+        private bool flaming;
         public bool Flaming
         {
             get { return flaming; }
@@ -36,7 +36,7 @@ namespace DamageCalculation
         }
 
         // magic backing field and property
-        protected bool magic;
+        private bool magic;
         public bool Magic
         {
             get { return magic; }
