@@ -5,8 +5,8 @@ namespace DamageCalculation
     class Program
     {
         static Random random = new Random();
-        static SwordDamage swordDamage = new SwordDamage(RollDice(3));
-        static ArrowDamage arrowDamage = new ArrowDamage(RollDice(3));
+        static WeaponDamage swordDamage = new SwordDamage(RollDice(3));
+        static WeaponDamage arrowDamage = new ArrowDamage(RollDice(3));
 
         static void Main(string[] args)
         {

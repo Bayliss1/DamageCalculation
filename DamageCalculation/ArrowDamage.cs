@@ -27,10 +27,9 @@ namespace DamageCalculation
         /// Constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
         /// </summary>
         /// <param name="startingRoll">Starting 3d6 roll</param>
-        public ArrowDamage(int startingRoll)
+        public ArrowDamage(int startingRoll) : base(startingRoll)
         {
-            roll = startingRoll;
-            CalculateDamage();
+            // uses base class constructor
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DamageCalculation
     class WeaponDamage
     {
         // property for damage
-        public int Damage { get; private set; }
+        public int Damage { get; set; }
 
         // roll backing field and property
         protected int roll;
@@ -24,8 +24,8 @@ namespace DamageCalculation
         }
 
         // flaming backing field and property
-        protected int flaming;
-        public int Flaming
+        protected bool flaming;
+        public bool Flaming
         {
             get { return flaming; }
             set
@@ -36,8 +36,8 @@ namespace DamageCalculation
         }
 
         // magic backing field and property
-        protected int magic;
-        public int Magic
+        protected bool magic;
+        public bool Magic
         {
             get { return magic; }
             set
@@ -49,7 +49,7 @@ namespace DamageCalculation
 
         protected virtual void CalculateDamage()
         {
-            /*subclasses override this*/
+            //subclasses override this
         }
 
         /// <summary>
