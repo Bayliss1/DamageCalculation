@@ -6,65 +6,18 @@ using System.Threading.Tasks;
 
 namespace DamageCalculation
 {
-    class SwordDamage
+    class SwordDamage : WeaponDamage
     { 
         public const int BASE_DAMAGE = 3;
         public const int FLAME_DAMAGE = 2;
 
         /// <summary>
-        /// Contains total damage.
-        /// </summary>
-        public int Damage { get; private set; }
-        
-        private int roll;
-        /// <summary>
-        /// Stores value of the simulated 3d6 roll.
-        /// </summary>
-        public int Roll
-        {
-            get { return roll; }
-            set
-            {
-                roll = value;
-                CalculateDamage();
-            }
-        }
-
-        private bool flaming;
-        /// <summary>
-        /// True if the sword is flaming, flase otherwise.
-        /// </summary>
-        public bool Flaming
-        {
-            get { return flaming; }
-            set
-            {
-                flaming = value; 
-                CalculateDamage();
-            }
-        }
-
-        private bool magic;
-        /// <summary>
-        /// True if the sword is magic, flase otherwise.
-        /// </summary>
-        public bool Magic
-        {
-            get { return magic; }
-            set
-            {
-                magic = value;
-                CalculateDamage();
-            }
-        }
-
-        /// <summary>
         /// Calculates the damage based on the current properties.
         /// </summary>
-        private void CalculateDamage()
+        protected override void CalculateDamage()
         {
             decimal magicMultiplier = 1M;
-            if (magic) magicMultiplier = 1.75M;
+            if (Magic) magicMultiplier = 1.75M;
 
             Damage = BASE_DAMAGE;
             Damage = (int)(Roll * magicMultiplier) + BASE_DAMAGE;
