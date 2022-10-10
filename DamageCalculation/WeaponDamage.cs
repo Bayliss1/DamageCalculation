@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DamageCalculation
 {
-    class WeaponDamage
+    abstract class WeaponDamage
     {
         // property for damage
         public int Damage { get; protected set; }
@@ -47,10 +47,7 @@ namespace DamageCalculation
             }
         }
 
-        protected virtual void CalculateDamage()
-        {
-            //subclasses override this
-        }
+        protected abstract void CalculateDamage();
 
         /// <summary>
         /// Constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
